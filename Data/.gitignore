@@ -1,0 +1,8 @@
+# Ignore the Sakura shaders that are copied across.
+SaBasicEffect_f*
+SaBasicModelEffect*
+SaDebugEffect*
+SaSpriteEffect*
+
+# And any libs I've copied across.
+*.dll
