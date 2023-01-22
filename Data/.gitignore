@@ -1,5 +1,5 @@
 # Ignore the Sakura shaders that are copied across.
-SaBasicEffect_f*
+SaBasicEffect*
 SaBasicModelEffect*
 SaDebugEffect*
 SaSpriteEffect*
