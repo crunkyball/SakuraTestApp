@@ -189,19 +189,21 @@ void TestAppGame::Initialise()
     m_pTestModel = SaResourceManager::LoadModel("Suzanne.sak");
 #endif
 
-    float width = (float)GetGameProperties().m_xResolution;
-    float height = (float)GetGameProperties().m_yResolution;
+    uint32_t width = GetGameProperties().m_xResolution;
+    uint32_t height = GetGameProperties().m_yResolution;
 
     static const uint32_t numViewports = 2;
     uint32_t viewportWidth = width / numViewports;
 
-    m_camera.Initialise(viewportWidth/height);
+    float aspectRatio = static_cast<float>(viewportWidth) / height;
+
+    m_camera.Initialise(aspectRatio);
     m_camera.SetInputComponent(&m_freeCamInput);
     //Shift the camera up a bit initially.
     m_camera.SetPosition(m_camera.GetPosition() + SaVector3::Y_AXIS * 1.5f);
     m_camera.SetPosition(m_camera.GetPosition() - SaVector3::Z_AXIS * 7.0f);
 
-    m_camera2.Initialise(viewportWidth/height);
+    m_camera2.Initialise(aspectRatio);
     m_camera2.SetPosition(m_camera2.GetPosition() + SaVector3::Y_AXIS * 2.0f);
     m_camera2.SetPosition(m_camera2.GetPosition() - SaVector3::Z_AXIS * 5.0f);
 
